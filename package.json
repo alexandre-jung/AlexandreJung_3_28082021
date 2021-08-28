@@ -1,0 +1,39 @@
+{
+    "name": "alexandrejung_3_28082021",
+    "homepage": "https://alexandre-jung.github.io/AlexandreJung_3_28082021",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "sass:run": "sass scss/main.scss static/css/main.css",
+        "sass:watch": "npm run sass:run -- --watch",
+        "sass:build": "npm run sass:run -- --style compressed",
+        "postcss:purge": "postcss static/css/main.css -o static/css/main.css",
+        "build": "npm run sass:build && npm run postcss:purge",
+        "clean": "rimraf static/css/ build/",
+        "copy": "copyfiles index.html \"menu/*\" \"static/**\" build/",
+        "deploy": "npm run build && npm run copy && npm run html:minify && gh-pages -d build",
+        "html:minify": "html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-tag-whitespace --input-dir build/ --output-dir build/ --file-ext html"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/alexandre-jung/AlexandreJung_3_28082021.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/alexandre-jung/AlexandreJung_3_28082021/issues"
+    },
+    "dependencies": {
+        "@fullhuman/postcss-purgecss": "^4.0.3",
+        "copyfiles": "^2.4.1",
+        "html-minifier": "^4.0.0",
+        "postcss": "^8.3.6",
+        "postcss-cli": "^8.3.1",
+        "rimraf": "^3.0.2",
+        "sass": "^1.38.2"
+    },
+    "devDependencies": {
+        "gh-pages": "^3.2.3"
+    }
+}

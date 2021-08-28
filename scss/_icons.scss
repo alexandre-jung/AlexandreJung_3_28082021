@@ -1,0 +1,35 @@
+@use 'fontawesome/variables' as *;
+@use 'fontawesome/fontawesome';
+@use 'fontawesome/solid';
+@use 'fontawesome/regular';
+
+$icons: (
+    'map-marker': $fa-var-map-marker-alt,
+    'mobile': $fa-var-mobile-alt,
+    'list': $fa-var-list-ul,
+    'store': $fa-var-store,
+    'heart': ($fa-var-heart, 'regular'),
+    'utensils': $fa-var-utensils,
+    'hands-helping': $fa-var-hands-helping,
+    'check-circle': $fa-var-check-circle,
+);
+
+@mixin icon($icon, $style: 'solid') {
+    @extend %fa-icon;
+    @extend .fa-lg;
+
+    // Chose style
+    @if ($style == 'regular') { @extend .far; }
+    @else { @extend .fas; }
+
+    &::before {
+        content: fa-content($icon);
+    }
+}
+
+// Generate icon classes
+@each $class, $params in $icons {
+    .#{$class} {
+        @include icon($params...);
+    }
+}
