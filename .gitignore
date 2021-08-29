@@ -1,5 +1,6 @@
 .vscode/
 private/
 node_modules/
-static/css/
+src/static/css/
 build/
+dist/
