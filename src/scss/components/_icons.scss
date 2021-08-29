@@ -3,12 +3,15 @@
 @use '../fontawesome/solid';
 @use '../fontawesome/regular';
 
+@use '../variables' as *;
+
 $icons: (
     'map-marker': $fa-var-map-marker-alt,
     'mobile': $fa-var-mobile-alt,
     'list': $fa-var-list-ul,
     'store': $fa-var-store,
     'heart': ($fa-var-heart, 'regular'),
+    'heart-solid': ($fa-var-heart, 'solid'),
     'utensils': $fa-var-utensils,
     'hands-helping': $fa-var-hands-helping,
     'check-circle': $fa-var-check-circle,
@@ -29,11 +32,85 @@ $icons: (
     &::before {
         content: fa-content($icon);
     }
+
+    // child position based on parent
+    position: relative;
+}
+
+%icon-transition {
+    transition: clip-path 750ms linear;
 }
 
 // Generate icon classes
 @each $class, $params in $icons {
     .#{$class} {
         @include icon($params...);
+    }
+}
+
+/*************************************************************
+* Icon animation
+*************************************************************/
+
+%icon-visible {
+    &::before {
+        clip-path: polygon(
+            0 0,
+            100% 0,
+            100% 100%,
+            0 100%,
+        );
+    }
+}
+
+%icon-fade-out {
+    &::before {
+        clip-path: polygon(
+            0 0,
+            100% 0,
+            100% 0,
+            0 0,
+        );
+    }
+}
+
+.icon-overlay {
+    font-size: 1em;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: transparent;
+}
+
+.icon-animated {
+    &::before {
+        @extend %icon-transition;
+        @extend %icon-visible;
+    }
+    .icon-overlay::before {
+        @extend %icon-transition;
+        background: linear-gradient(to right bottom, $color-secondary, $color-primary);
+        background-clip: text;
+        clip-path: polygon(
+            0 100%,
+            100% 100%,
+            100% 100%,
+            0 100%,
+        );
+    }
+    &:hover {
+        @extend %icon-fade-out;
+        .icon-overlay {
+            @extend %icon-visible;
+        }
+    }
+}
+
+.icon-animation:hover {
+    .icon-animated {
+        @extend %icon-fade-out;
+    }
+    .icon-overlay {
+        @extend %icon-visible;
     }
 }
