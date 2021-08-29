@@ -14,6 +14,10 @@ $icons: (
     'check-circle': $fa-var-check-circle,
 );
 
+.icon::before {
+    font-family: inherit;
+}
+
 @mixin icon($icon, $style: 'solid') {
     @extend %fa-icon;
     @extend .fa-lg;

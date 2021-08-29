@@ -1,5 +1,9 @@
 @use 'variables' as *;
 
+*, ::before, ::after {
+    font-family: 'Roboto';
+}
+
 h1, h2 {
     font-family: $heading-font-family;
 }
