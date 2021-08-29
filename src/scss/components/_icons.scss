@@ -1,7 +1,7 @@
-@use 'fontawesome/variables' as *;
-@use 'fontawesome/fontawesome';
-@use 'fontawesome/solid';
-@use 'fontawesome/regular';
+@use '../fontawesome/variables' as *;
+@use '../fontawesome/fontawesome';
+@use '../fontawesome/solid';
+@use '../fontawesome/regular';
 
 $icons: (
     'map-marker': $fa-var-map-marker-alt,
