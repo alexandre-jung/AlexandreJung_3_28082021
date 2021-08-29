@@ -1,0 +1,61 @@
+@use 'sass:color';
+@use '../variables' as *;
+
+$primary-hover: color.adjust($color-primary, $lightness: +10%);
+$secondary-hover: color.adjust($color-secondary, $lightness: +10%);
+
+.btn {
+    font-size: 1rem;
+    border-radius: 40px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+    
+    // size the button
+    display: inline-block;
+    height: 50px;
+    margin: 0;
+    padding: 0 20px;
+
+    // vertically align text
+    line-height: 50px;
+    vertical-align: middle;
+
+    // don't let ::before corners overflow
+    overflow: hidden;
+
+    // this let us position ::before based on parent
+    position: relative;
+
+    // https://developer.mozilla.org/en-US/docs/Web/CSS/z-index
+    z-index: 0;
+
+    &#{&}-primary {
+        background: linear-gradient(to right bottom, $color-secondary, $color-primary);
+        color: white;
+
+        &::before {
+            background: linear-gradient(to right bottom, $secondary-hover, $primary-hover);
+
+            // make it a block that covers its parent
+            content: '';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+
+            // animate opacity for better performance
+            opacity: 0;
+            transition: opacity 250ms;
+            
+            // give a z-index so it stays above the parent's background but below its text
+            z-index: -1;
+        }
+        &:hover::before {
+            opacity: 1;
+        }
+    }
+}
