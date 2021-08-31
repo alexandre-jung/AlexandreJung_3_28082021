@@ -9,7 +9,7 @@ html, body {
     padding: 0;
 }
 
-h1, h2 {
+h1 {
     font-family: $heading-font-family;
 }
 
@@ -63,5 +63,19 @@ header {
         font-size: 1em;
         transform: translateY(-0.1em);
         margin-right: 10px;
+    }
+}
+
+.hero {
+    text-align: center;
+    background-color: $gray-lighter;
+    padding: 20px 30px 55px;
+    &-heading {
+        margin: 20px 20px 15px;
+    }
+    &-body {
+        margin: 0px 0 30px;
+        font-size: 1.1em;
+        color: $gray-medium;
     }
 }
