@@ -47,3 +47,20 @@ header {
 .brand {
     margin: 5px 0 0 0;
 }
+
+.location {
+    color: $gray-dark;
+    background-color: $gray-light;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px 25px 15px 0;
+    font-size: 1.1em;
+    * {
+        transform: translateX(-1em);
+    }
+    .icon {
+        font-size: 1em;
+        transform: translateY(-0.1em);
+        margin-right: 10px;
+    }
+}
