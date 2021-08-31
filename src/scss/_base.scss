@@ -15,7 +15,8 @@ h1, h2 {
 
 header {
     height: 65px;
-    background-color: $gray-lighter;
+    background-color: white;
+    box-shadow: 0 0px 4px $gray-medium;
 
     // disable margin collapse
     display: flex;
