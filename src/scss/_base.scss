@@ -14,9 +14,13 @@ h1, h4 {
     font-weight: normal;
 }
 
-ul {
+h2 {
+    margin: 0;
+}
+
+ul, ol {
     list-style-type: none;
-    padding-left: 0;
+    padding: 0;
 }
 
 header {
@@ -83,6 +87,13 @@ header {
         margin: 0px 0 30px;
         font-size: 1.1em;
         color: $gray-medium;
+    }
+}
+
+section {
+    padding: 55px 20px;
+    h2 {
+        margin-bottom: 20px;
     }
 }
 

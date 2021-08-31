@@ -1,0 +1,42 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.help-list {
+    counter-reset: count;
+    display: flex;
+    flex-flow: column nowrap;
+    .help-list-item {
+        counter-increment: count;
+        margin: 12px 0 12px 0.85em;
+        padding-right: 30px;
+        background-color: $gray-lighter;
+        font-weight: bold;
+        height: 75px;
+        line-height: 75px;
+        border-radius: 25px;
+        @include shadow;
+        &::before {
+            content: counter(count);
+            display: inline-block;
+            width: 1.7em;
+            height: 1.7em;
+            border-radius: 1.7em;
+            line-height: 1.7em;
+            text-align: center;
+            color: white;
+            background-color: $color-primary;
+            transform: translateX(-0.85em);
+        }
+        &.active {
+            background-color: $color-primary-light;
+            .icon {
+                color: $color-primary;
+            }
+        }
+        .icon {
+            color: $gray-medium;
+            margin-right: 0.85em;
+            font-size: 1.2em;
+        }
+    }
+}

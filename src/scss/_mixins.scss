@@ -1,0 +1,16 @@
+@use 'variables' as *;
+
+@mixin shadow($color: $gray-light) {
+    box-shadow: 0 5px 7px 2px $color;
+}
+
+.shadow {
+    @include shadow($color: rgb(180, 180, 180));
+}
+
+.shadow-hover {
+    transition: box-shadow 200ms ease-in-out;
+    &:hover {
+        box-shadow: 0 15px 7px 2px rgb(180, 180, 180);
+    }
+}
