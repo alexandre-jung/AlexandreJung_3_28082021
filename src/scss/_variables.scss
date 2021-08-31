@@ -1,5 +1,10 @@
-$color-primary: #9356DC;
-$color-secondary: #FF79DA;
-$color-tertiary: #99E2D0;
+$color-primary: #9356DC;  // step number / current step icon / gradient
+$color-secondary: #FF79DA;  // gradient
+$color-tertiary: #99E2D0;  // `new` badge / `checked` bg
+$color-primary-light: #f2ebff;
+$gray-dark: #303030;  // footer bg / location text
+$gray-medium: #747474;  // icon color
+$gray-light: #E7E7E7;  // location bg
+$gray-lighter: #F5F5F5;  // section bg - step cards bg
 
 $heading-font-family: 'Shrikhand', cursive;
