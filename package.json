@@ -9,14 +9,16 @@
         "sass:run": "sass src/scss/main.scss src/static/css/main.css",
         "copy:build": "copyfiles -u 3 \"src/static/css/*\" build/",
         "copy:dist": "copyfiles -u 1 \"src/static/**\" -e \"src/static/css/**/*\" dist/",
+        "copy:all": "npm run copy:build && npm run copy:dist",
         "compress:css": "postcss build/main.css -o dist/static/css/main.css",
         "compress:html": "html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-tag-whitespace --input-dir src/ --output-dir dist/ --file-ext html",
+        "compress:all": "npm run compress:css && npm run compress:html",
         "clean:sass": "rimraf src/static/css/",
         "clean:build": "rimraf build/",
         "clean:dist": "rimraf dist/",
         "clean:all": "rimraf src/static/css/ build/ dist/",
-        "build": "npm run sass:run && npm run copy:build && npm run copy:dist && npm run compress:css && npm run compress:html",
-        "deploy": "npm run build && npm run copy:build && npm run compress:html && gh-pages -d dist"
+        "build": "npm run sass:run && npm run copy:all && npm run compress:all",
+        "deploy": "npm run build && gh-pages -d dist"
     },
     "repository": {
         "type": "git",
