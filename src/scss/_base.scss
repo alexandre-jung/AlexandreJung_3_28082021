@@ -1,4 +1,5 @@
 @use 'variables' as *;
+@use 'mixins' as *;
 
 *, ::before, ::after {
     font-family: 'Roboto';
@@ -26,7 +27,7 @@ ul, ol {
 header {
     height: 65px;
     background-color: white;
-    box-shadow: 0 0px 4px $gray-medium;
+    box-shadow: 0 0px 4px rgb(165, 165, 165);
 
     // disable margin collapse
     display: flex;
@@ -117,4 +118,8 @@ footer {
         width: 1em;
         margin-right: 10px;
     }
+}
+
+.bg-light {
+    background-color: $gray-light;
 }
