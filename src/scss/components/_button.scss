@@ -1,5 +1,6 @@
 @use 'sass:color';
 @use '../variables' as *;
+@use '../mixins' as *;
 
 $primary-hover: color.adjust($color-primary, $lightness: +10%);
 $secondary-hover: color.adjust($color-secondary, $lightness: +10%);
@@ -34,6 +35,12 @@ $secondary-hover: color.adjust($color-secondary, $lightness: +10%);
     &#{&}-primary {
         background: linear-gradient(to right bottom, $color-secondary, $color-primary);
         color: white;
+        @include shadow(adjust-color($color: $gray-light, $lightness: -10%));
+        transition: box-shadow 250ms ease-in-out;
+
+        &:hover {
+            @include shadow(adjust-color($color: $gray-light, $lightness: -25%));
+        }
 
         &::before {
             background: linear-gradient(to right bottom, $secondary-hover, $primary-hover);
