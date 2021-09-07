@@ -165,3 +165,17 @@ footer {
 .icon.heart {
     cursor: pointer;
 }
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.order {
+    padding: 50px 0;
+    .btn {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
