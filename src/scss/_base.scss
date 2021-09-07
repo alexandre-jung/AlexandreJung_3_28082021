@@ -124,3 +124,10 @@ footer {
 .bg-light {
     background-color: $gray-lighter;
 }
+
+main {
+    img {
+        display: block;
+        width: 100%;
+    }
+}
