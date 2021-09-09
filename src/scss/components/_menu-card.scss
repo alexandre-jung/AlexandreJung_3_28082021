@@ -1,0 +1,97 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+%text-truncate {
+    // grow of shrink without restriction
+    flex: 1 1 0;
+    // no text wrapping, show ellipsis on overflow
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.menu-section {
+    margin: 0;
+    padding: 0;
+    h3 {
+        text-transform: uppercase;
+        font-weight: lighter;
+        font-size: 1em;
+        margin-top: 30px;
+        margin-left: 5px;
+        padding-bottom: 10px;
+        position: relative;
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            display: block;
+            background-color: $color-tertiary;
+            width: 40px;
+            height: 3px;
+        }
+    }
+}
+
+.menu-card {
+    // quick reset spaces
+    & * {
+        margin: 0;
+        padding: 0;
+    }
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    width: 100%;
+    margin: 15px 0;
+    border-radius: 15px;
+    background-color: white;
+    @include shadow;
+    &-content {
+        flex: 1 1 0;
+        overflow: hidden;
+        margin: 12px;
+    }
+    &-title {
+        font-family: Roboto;
+        font-weight: bold;
+        font-size: 1.05em;
+        margin-bottom: 3px;
+        @extend %text-truncate;
+    }
+    &-detail {
+        display: flex;
+            font-size: 0.90em;
+        &-description {
+            font-weight: lighter;
+            @extend %text-truncate;
+        }
+        &-price {
+            margin-left: 10px;
+        }
+    }
+    &-check {
+        width: 0;
+        margin-left: 10px;
+        background-color: $color-tertiary;
+        transition: width 400ms ease-out;
+        .card-icon-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60px;
+            height: 100%;
+        }
+        .icon {
+            transform: rotate(-270deg);
+            transition: transform 400ms ease-out;
+        }
+    }
+    &:hover .menu-card-check {
+        width: 60px;
+        .icon {
+            transform: rotate(0);
+            transition: transform 250ms 150ms ease-out;
+        }
+    }
+}

@@ -126,6 +126,10 @@ footer {
     background-color: $gray-lighter;
 }
 
+.white {
+    color: white;
+}
+
 .menu {
     img {
         display: block;
@@ -144,14 +148,16 @@ footer {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 35px 20px;
+        padding: 25px 0 0 5px;
         .icon {
             font-size: 1em;
-            margin-right: 20px;
+            margin-right: 15px;
+            padding: 10px;
         }
     }
     >div {
         margin-top: -50px;
+        padding: 0 20px;
         background-color: $gray-lighter;
         
         // needed for stacking order
@@ -173,7 +179,7 @@ footer {
 }
 
 .order {
-    padding: 50px 0;
+    padding: 30px 0 50px;
     .btn {
         padding-left: 50px;
         padding-right: 50px;
