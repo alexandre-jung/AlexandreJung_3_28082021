@@ -1,0 +1,18 @@
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform: translateY(130px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@for $i from 1 through 15 {
+    .fade-in:nth-of-type(#{$i}) {
+        animation: fade-in 800ms ($i * 150ms) backwards;
+    } 
+}
