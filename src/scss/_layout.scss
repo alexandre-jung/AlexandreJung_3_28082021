@@ -1,0 +1,102 @@
+@use 'breakpoints' as *;
+
+.help-section {
+    max-width: 375px;
+    margin: auto;
+    @include breakpoint-laptop {
+        max-width: 964px;
+        ol {
+            flex-direction: row;
+            justify-content: space-between;
+            li {
+                flex: 1 0 0;
+                &:not(:first-child) {
+                    margin-left: 32px;
+                }
+            }
+        }
+    }
+}
+.card-container {
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    h2 {
+        width: 100%;
+    }
+    @include breakpoint-laptop {
+        max-width: 964px;
+        display: flex;
+        justify-content: space-between;
+        flex-flow: row wrap;
+        .card-link {
+            width: calc(50% - 10px);
+        }
+    }
+    @include breakpoint-desktop {
+        max-width: 1380px;
+        .card-link {
+            width: calc(33% - 10px);
+        }
+    }
+}
+footer > nav {
+    max-width: 500px;
+    margin: auto;
+    @include breakpoint-laptop {
+        max-width: 1380px;
+        display: flex;
+        justify-content: space-between;
+        h4 {
+            margin: 16px 0;
+        }
+        > ul {
+            display: flex;
+            li {
+                margin-left: 50px;
+            }
+        }
+    }
+}
+
+.menu {
+    &-content {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        box-sizing: border-box;
+        &-heading {
+            height: 65px;
+        }
+        .menu-heading, .order {
+            width: 100%;
+        }
+        .menu-section {
+            width: 100%;
+        }
+    }
+    @media screen and (min-width: 500px)
+    {
+        max-width: 500px;
+        margin: 0 auto;
+        margin-top: calc(100vh - 100px);
+        > img {
+            position: fixed;
+            z-index: -1;
+            top: 0;
+            left: 15px;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            max-width: none;
+            object-fit: cover;
+        }
+    }
+    @include breakpoint-laptop {
+        max-width: 1440px;
+        &-section {
+            max-width: calc(33% - 10px);
+        }
+    }
+}
