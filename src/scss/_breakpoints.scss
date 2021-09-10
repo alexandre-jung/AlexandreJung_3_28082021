@@ -1,0 +1,16 @@
+$breakpoints: (
+    'laptop': 1024px,
+    'desktop': 1440px, 
+);
+
+@mixin breakpoint-laptop {
+    @media screen and (min-width: map-get($map: $breakpoints, $key: 'laptop')) {
+        @content;
+    }
+}
+
+@mixin breakpoint-desktop {
+    @media screen and (min-width: map-get($map: $breakpoints, $key: 'desktop')) {
+        @content;
+    }
+}

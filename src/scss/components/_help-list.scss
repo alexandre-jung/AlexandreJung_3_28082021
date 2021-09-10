@@ -5,15 +5,16 @@
     counter-reset: count;
     display: flex;
     flex-flow: column nowrap;
-    .help-list-item {
+    &-item {
         counter-increment: count;
         margin: 12px 0 12px 0.85em;
         padding-right: 30px;
         background-color: $gray-lighter;
         font-weight: bold;
         height: 75px;
-        line-height: 75px;
         border-radius: 25px;
+        display: flex;
+        align-items: center;
         @include shadow;
         &::before {
             content: counter(count);

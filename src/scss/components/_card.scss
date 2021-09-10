@@ -2,7 +2,6 @@
 @use '../variables' as *;
 
 .card {
-    margin: 20px 0;
     background-color: white;
     @include shadow($gray-light);
 
@@ -58,6 +57,8 @@
     &-link {
         color: black;
         text-decoration: none;
+        margin: 10px 0;
+        display: block;
     }
     &-badge {
         // position to the top-right corner of the card
