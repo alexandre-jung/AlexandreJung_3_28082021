@@ -60,6 +60,19 @@ footer > nav {
     }
 }
 
+
+@media screen and (min-width: 500px)
+{
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: unset;
+    }
+    header {
+        margin-bottom: 250px;
+    }
+}
+
 .menu {
     &-content {
         display: flex;
@@ -78,9 +91,9 @@ footer > nav {
     }
     @media screen and (min-width: 500px)
     {
+        width: 100%;
         max-width: 500px;
-        margin: 0 auto;
-        margin-top: calc(100vh - 100px);
+        margin: auto auto 0;
         > img {
             position: fixed;
             z-index: -1;
