@@ -60,12 +60,11 @@ footer > nav {
     }
 }
 
-@media screen and (min-width: 500px)
+@include breakpoint-tablet
 {
     body {
         display: flex;
         flex-direction: column;
-        align-items: unset;
     }
     .header-margin {
         margin-bottom: 150px;
@@ -88,7 +87,7 @@ footer > nav {
             width: 100%;
         }
     }
-    @media screen and (min-width: 500px)
+    @include breakpoint-tablet
     {
         width: 100%;
         max-width: 500px;
