@@ -45,34 +45,36 @@
     left: 0;
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    background-color: rgba($color: #000000, $alpha: 0.3);
-    animation: hide 0ms 2500ms forwards;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    animation: hide 0ms 3000ms forwards;
 }
 
 .loading-spinner {
     box-sizing: border-box;
     display: block;
-    width: 100px;
-    height: 100px;
+    width: 50px * $spinner-scale;
+    height: 50px * $spinner-scale;
     position: relative;
     border-radius: 100%;
-    border: 10px solid $color-tertiary;
+    border: 5px * $spinner-scale solid $color-tertiary;
     border-bottom-color: transparent;
     border-right-color: transparent;
     animation: rotate 2s linear infinite reverse;
+    transform: scale(0);
 
     &::before {
         content: '';
         box-sizing: border-box;
         display: block;
-        width: 80px;
-        height: 80px;
+        width: 40px * $spinner-scale;
+        height: 40px * $spinner-scale;
         position: absolute;
         border-radius: 100%;
-        border: 10px solid $color-primary;
+        border: 5px * $spinner-scale solid $color-primary;
         border-bottom-color: transparent;
         border-right-color: transparent;
         animation: rotate 0.8s linear infinite;
@@ -81,15 +83,62 @@
         content: '';
         box-sizing: border-box;
         display: block;
-        width: 60px;
-        height: 60px;
+        width: 30px * $spinner-scale;
+        height: 30px * $spinner-scale;
         position: absolute;
-        top: 10px;
-        left: 10px;
+        top: 5px * $spinner-scale;
+        left: 5px * $spinner-scale;
         border-radius: 100%;
-        border: 10px solid $color-secondary;
+        border: 5px * $spinner-scale solid $color-secondary;
         border-bottom-color: transparent;
         border-right-color: transparent;
         animation: rotate 1.9s linear infinite reverse;
+    }
+}
+
+@keyframes bouncing-letter {
+    0% {
+        transform: translateY(0);
+        animation-timing-function: ease-out;
+    }
+    15% {
+        transform: translateY(-25px);
+        animation-timing-function: ease-in;
+    }
+    30% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fall-down {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        // we can add a bounce before the letters go down
+        // transform: translateY(-25px);
+    }
+    100% {
+        transform: translateY(50vh);
+    }
+}
+
+.bouncing-logo {
+    font-size: 0;
+    font-style: italic;
+    color: white;
+    margin-top: 30px;
+    white-space: nowrap;
+}
+
+@for $i from 1 through 8 {
+    .bouncing-letter-#{$i} {
+    font-size: 2.5rem;
+        display: inline-block;
+        width: auto;
+        animation:
+            bouncing-letter 1200ms (($i - 1) * 100ms) 2,
+            fall-down 400ms (2200ms + (($i - 1) * 50ms)) ease-in 1 forwards;
+        text-shadow: 2px 2px 2px black;
     }
 }
