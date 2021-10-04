@@ -142,3 +142,30 @@
         text-shadow: 2px 2px 2px black;
     }
 }
+
+@keyframes shake {
+    0% {
+        transform: rotate(0deg);
+        animation-timing-function: ease-out;
+    }
+    5% {
+        transform: rotate(10deg);
+        animation-timing-function: ease-in;
+    }
+    10% {
+        transform: rotate(0deg);
+        animation-timing-function: ease-out;
+    }
+    15% {
+        transform: rotate(-10deg);
+        animation-timing-function: ease-in;
+    }
+    20% {
+        transform: rotate(0deg);
+        animation-timing-function: ease-out;
+    }
+}
+
+.card-badge {
+    animation: shake 1000ms infinite;
+}
