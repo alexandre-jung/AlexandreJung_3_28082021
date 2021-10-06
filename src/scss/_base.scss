@@ -150,7 +150,7 @@ footer {
         // needed for stacking order
         position: relative;
 
-        // full width with a small zoom
+        // compensate for container margins
         width: calc(100% + 30px);
         margin: 0 -15px;
     }
