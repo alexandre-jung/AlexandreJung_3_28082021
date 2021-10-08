@@ -11,7 +11,7 @@
         "copy:dist": "copyfiles -u 1 \"src/static/**\" -e \"src/static/css/**/*\" dist/",
         "copy:all": "npm run copy:build && npm run copy:dist",
         "compress:css": "postcss build/main.css -o dist/static/css/main.css",
-        "compress:html": "html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-tag-whitespace --input-dir src/ --output-dir dist/ --file-ext html",
+        "compress:html": "html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --input-dir src/ --output-dir dist/ --file-ext html",
         "compress:all": "npm run compress:css && npm run compress:html",
         "clean:sass": "rimraf src/static/css/",
         "clean:build": "rimraf build/",
