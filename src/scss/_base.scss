@@ -1,6 +1,7 @@
 @use 'breakpoints' as *;
 @use 'variables' as *;
 @use 'mixins' as *;
+@use 'breakpoints' as *;
 
 *, ::before, ::after {
     font-family: 'Roboto';
@@ -27,6 +28,10 @@ h1, h4 {
 
 h2 {
     margin: 0;
+    @include breakpoint-laptop {
+        text-align: center;
+        font-size: 2em;
+    }
 }
 
 ul, ol {
