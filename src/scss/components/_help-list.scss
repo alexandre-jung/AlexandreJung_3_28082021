@@ -16,6 +16,8 @@
         display: flex;
         align-items: center;
         @include shadow;
+        transition: background-color 250ms ease-in-out;
+        cursor: pointer;
         &::before {
             content: counter(count);
             display: inline-block;
@@ -28,10 +30,11 @@
             background-color: $color-primary;
             transform: translateX(-0.85em);
         }
-        &.active {
+        &:hover {
             background-color: $color-primary-light;
             .icon {
                 color: $color-primary;
+                transition: color 250ms ease-in-out;
             }
         }
         .icon {
