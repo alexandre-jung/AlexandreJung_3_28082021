@@ -36,9 +36,6 @@
     }
     @include breakpoint-desktop {
         max-width: 1380px;
-        .card-link {
-            width: calc(33% - 10px);
-        }
     }
 }
 footer > nav {
